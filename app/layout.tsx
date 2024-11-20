@@ -25,12 +25,6 @@ const inter = Inter({
   display: "swap",
 });
 
-const hostGrotesk = Host_Grotesk({
-  variable: "--font-host-grotesk",
-  subsets: ["latin"],
-  display: "swap",
-});
-
 const ephesis = Ephesis({
   variable: "--font-ephesis",
   subsets: ["latin"],
@@ -62,7 +56,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${ephesis.variable} ${hostGrotesk.variable} ${lato.variable} ${libreBaskerville.variable}`}
+      className={`${inter.variable} ${ephesis.variable} ${lato.variable} ${libreBaskerville.variable}`}
     >
       <body>
         <section className="min-h-screen p-12 pt-20 lg:pt-20 lg:pl-20">
