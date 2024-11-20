@@ -27,20 +27,26 @@ export default async function WorkPage({ params }: { params: tParams }) {
     <div>
       <h1>{work.title}</h1>
 
-      <div className="max-w-3xl py-4">
-        {documentToReactComponents(work.content.json, {
-          renderNode: {
-            [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
-            [BLOCKS.HEADING_1]: (node, children) => <h1>{children}</h1>,
-            [BLOCKS.HEADING_2]: (node, children) => <h2>{children}</h2>,
-            [INLINES.HYPERLINK]: (node, children) => (
-              <a href={node.data.uri} target="_blank" rel="noopener noreferrer">
-                {children}
-              </a>
-            ),
-          },
-        })}
-      </div>
+      {work.content && work.content.json && (
+        <div className="max-w-3xl py-4">
+          {documentToReactComponents(work.content.json, {
+            renderNode: {
+              [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
+              [BLOCKS.HEADING_1]: (node, children) => <h1>{children}</h1>,
+              [BLOCKS.HEADING_2]: (node, children) => <h2>{children}</h2>,
+              [INLINES.HYPERLINK]: (node, children) => (
+                <a
+                  href={node.data.uri}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {children}
+                </a>
+              ),
+            },
+          })}
+        </div>
+      )}
 
       <div className="max-w-7xl rounded-sm overflow-hidden">
         <ResponsiveImage
