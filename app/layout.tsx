@@ -15,7 +15,6 @@ export async function generateMetadata() {
   return {
     title: data.title,
     description: data.homeTagline,
-    //keywords: blog.keywords,
   };
 }
 
