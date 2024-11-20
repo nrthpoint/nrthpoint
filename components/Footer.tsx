@@ -7,7 +7,7 @@ interface FooterProps {
 
 export default function Footer({ content }: FooterProps) {
   return (
-    <footer className="text-white mt-12 max-w-6xl mb-8">
+    <footer className="text-white mt-12 ml-12 lg:ml-20 max-w-6xl mb-8">
       <div className="prose prose-invert max-w-none">
         {documentToReactComponents(content, {
           renderNode: {
