@@ -1,5 +1,4 @@
 import { GlobalData, Work } from "@/types/data";
-import { WorkItem } from "@contentful/rich-text-types";
 
 const GLOBAL_QUERY = `
   query globalEntryQuery {
