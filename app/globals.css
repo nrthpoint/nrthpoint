@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Global styles */
+  body {
+    @apply bg-gray-950 text-slate-100 font-sans leading-4;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-libre font-bold text-slate-100;
+    @apply pb-2;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h3 {
+    @apply uppercase;
+    @apply text-sm;
+    @apply font-lato;
+    @apply font-semibold;
+    @apply tracking-widest;
+  }
+
+  p {
+    @apply text-slate-200 font-light;
+    @apply mb-4;
+    @apply leading-8;
+  }
+
+  a {
+    @apply text-blue-500 hover:text-blue-700;
+  }
+}
