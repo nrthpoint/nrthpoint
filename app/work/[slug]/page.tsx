@@ -14,7 +14,7 @@ export default async function WorkPage({
 }: {
   params: { slug: string };
 }) {
-  const { slug } = await params;
+  const { slug } = params;
   const work = await getWorkItemBySlug(slug);
 
   if (!work) {
