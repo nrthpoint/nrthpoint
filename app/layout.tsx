@@ -8,6 +8,7 @@ import {
 } from "next/font/google";
 import Footer from "@/components/Footer";
 import { getFooterContent, getMetaData } from "@/lib/api";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export async function generateMetadata() {
   const data = await getMetaData();
@@ -61,6 +62,7 @@ export default async function RootLayout({
         <section className="min-h-screen p-12 pt-20 lg:pt-20 lg:pl-20">
           <main>{children}</main>
           <Footer content={footerData} />
+          <SpeedInsights />
         </section>
       </body>
     </html>
