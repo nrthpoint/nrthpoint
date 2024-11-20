@@ -9,12 +9,10 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug: slug.url }));
 }
 
-export default async function WorkPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const { slug } = params;
+type tParams = Promise<{ slug: string }>;
+
+export default async function WorkPage({ params }: { params: tParams }) {
+  const { slug } = await params;
   const work = await getWorkItemBySlug(slug);
 
   if (!work) {
