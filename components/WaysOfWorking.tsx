@@ -12,7 +12,7 @@ export default function WaysOfWorking({
   ways,
 }: WaysOfWorkingProps) {
   return (
-    <section className="p-6 max-w-5xl">
+    <section className="max-w-5xl">
       <h2 className="text-2xl font-semibold">{header}</h2>
       <p>{intro}</p>
       <div className="grid grid-cols-3 gap-4 mt-4">

@@ -20,7 +20,7 @@ export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
   }, [projects.length]);
 
   return (
-    <section className="p-6 max-w-7xl">
+    <section className="max-w-7xl">
       <div className="relative w-full h-96 min-h-[600px]">
         <div className="absolute inset-0 transition-all duration-1000 ease-in-out">
           {projects.map((project, idx) => (

@@ -8,7 +8,7 @@ interface IntroProps {
 
 export default function Intro({ tagline, intro }: IntroProps) {
   return (
-    <section className="p-6 max-w-5xl">
+    <section className="max-w-5xl">
       <h1 className="text-3xl font-normal">{tagline}</h1>
       <div className="prose my-4 max-w-[80%]">
         {documentToReactComponents(intro, {

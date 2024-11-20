@@ -6,7 +6,7 @@ interface HeaderProps {
 
 export default function Header({ title }: HeaderProps) {
   return (
-    <header className=" text-white p-6 text-center">
+    <header className=" text-white text-center">
       <Image src="/images/logo.png" alt="logo" width={300} height={100} />
     </header>
   );

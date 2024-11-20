@@ -10,7 +10,7 @@ export default function Services({
   services: Service[];
 }) {
   return (
-    <section className="p-6 mt-6 max-w-6xl">
+    <section className="mt-6 max-w-6xl">
       <h2 className="text-2xl font-semibold">{heading}</h2>
       <p>{intro}</p>
       <div className="grid grid-cols-3 gap-4 mt-4">

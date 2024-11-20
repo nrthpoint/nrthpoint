@@ -24,11 +24,19 @@ export default async function WorkPage({ params }: { params: tParams }) {
   }
 
   return (
-    <div>
-      <h1>{work.title}</h1>
+    <div className="mt-20">
+      <Image
+        src={"/images/logo.png"}
+        alt={work.title}
+        width={300}
+        height={100}
+        className="mb-20"
+      />
+
+      <h2>{work.title}</h2>
 
       {work.content && work.content.json && (
-        <div className="max-w-3xl py-4">
+        <div className="max-w-5xl py-4 mb-12">
           {documentToReactComponents(work.content.json, {
             renderNode: {
               [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
@@ -56,7 +64,7 @@ export default async function WorkPage({ params }: { params: tParams }) {
         />
       </div>
 
-      <div className="max-w-6xl">
+      <div className="max-w-7xl">
         {work.galleryCollection.items.map((item, index) => (
           <div
             key={index}
@@ -73,27 +81,32 @@ export default async function WorkPage({ params }: { params: tParams }) {
               />
             </div>
 
-            <div className="p-6">
+            {/* <div className="p-6">
               <h3 className="p-0">{item.title}</h3>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
 
-      <div className="flex flex-wrap gap-2 py-6">
-        {work.tags.map((tag, index) => (
-          <span
-            key={index}
-            className="bg-gray-900 inline-block text-white px-6 py-3 rounded-full text-sm font-medium border-solid"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
+      <div className="flex justify-between items-center w-full py-6 max-w-7xl">
+        <div className="flex flex-wrap gap-2">
+          {work.tags.map((tag, index) => (
+            <span
+              key={index}
+              className="bg-gray-900 inline-block text-white px-6 py-3 rounded-full text-sm font-medium border-solid"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
 
-      <a href={work.link} className="p-4 inline-block bg-gray-900 rounded-sm">
-        View more
-      </a>
+        <a
+          href={work.link}
+          className="p-4 bg-white block overflow-hidden text-black rounded-full font-medium border border-black hover:bg-gray-100"
+        >
+          visit
+        </a>
+      </div>
     </div>
   );
 }

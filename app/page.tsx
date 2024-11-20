@@ -17,7 +17,7 @@ export default async function Page() {
     <>
       <FixedBanner isEnabled={isEnabled} message="Preview Mode" />
 
-      <div className="min-h-screen w-full flex flex-col">
+      <div className="min-h-screen mt-16 gap-y-16 w-full flex flex-col">
         <Header title={data.title} />
         <Intro tagline={data.homeTagline} intro={data.introduction.json} />
         <FeaturedProjects projects={data.featuredProjectsCollection.items} />
