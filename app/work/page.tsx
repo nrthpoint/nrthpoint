@@ -2,12 +2,9 @@ import { Work } from "@/types/data";
 import { getAllWorkItems } from "../../lib/api";
 import Image from "next/image";
 import Link from "next/link";
-import { revalidateTag } from "next/cache";
 
 export default async function WorkList() {
   const workItems: Work[] = await getAllWorkItems();
-
-  revalidateTag("work");
 
   return (
     <div className="mt-20">

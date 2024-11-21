@@ -9,13 +9,10 @@ import Services from "@/components/Services";
 import WaysOfWorking from "@/components/WaysOfWorking";
 import FixedBanner from "@/components/EditBanner";
 import Footer from "@/components/Footer";
-import { revalidateTag } from "next/cache";
 
 export default async function Page() {
   const { isEnabled } = await draftMode();
   const data = await getGlobalContent();
-
-  revalidateTag("home");
 
   return (
     <>
