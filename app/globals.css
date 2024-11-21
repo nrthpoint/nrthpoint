@@ -6,6 +6,10 @@
   /* Global styles */
   body {
     @apply bg-gray-950 text-slate-100 font-sans leading-4;
+
+    background-image: url("/images/bg.jpg");
+    background-repeat: no-repeat;
+    background-position: top left;
   }
 
   h1,
