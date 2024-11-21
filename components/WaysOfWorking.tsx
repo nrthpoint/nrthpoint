@@ -24,7 +24,7 @@ export default function WaysOfWorking({
           <FadeInSection key={idx} delay={idx * 100}>
             <div
               key={idx}
-              className="p-4 pl-0 border-b border-b-gray-900 rounded-lg flex"
+              className="p-4 pl-0 border-b border-b-gray-900 rounded-lg flex md:h-[250px]"
             >
               <div>
                 <h3 className="font-semibold">{way.name}</h3>

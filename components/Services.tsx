@@ -20,7 +20,10 @@ export default function Services({
       <div className="grid md:grid-cols-2 gap-4 mt-4">
         {services.map((service, idx) => (
           <FadeInSection key={idx} delay={idx * 100}>
-            <div key={idx} className="p-4 pl-0 border-b border-gray-900">
+            <div
+              key={idx}
+              className="p-4 pl-0 border-b border-gray-900 md:h-[200px]"
+            >
               <h3 className="mt-2 mb-2 font-semibold">{service.name}</h3>
               <p className="text-sm leading-6">{service.description}</p>
             </div>
