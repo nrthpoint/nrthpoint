@@ -2,6 +2,7 @@ import ResponsiveImage from "@/components/ResponsiveImage";
 import { getAllWorkItemSlugs, getWorkItemBySlug } from "@/lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import { revalidateTag } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,6 +16,8 @@ type tParams = Promise<{ slug: string }>;
 export default async function WorkPage({ params }: { params: tParams }) {
   const { slug } = await params;
   const work = await getWorkItemBySlug(slug);
+
+  revalidateTag("work");
 
   if (!work) {
     return (

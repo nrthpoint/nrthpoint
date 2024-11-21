@@ -1,4 +1,4 @@
-import { getFooterContent, getMetaData } from "@/lib/api";
+import { getMetaData } from "@/lib/api";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Ephesis, Inter, Lato, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
@@ -44,8 +44,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const footerData = await getFooterContent();
-
   return (
     <html
       lang="en"
