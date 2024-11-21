@@ -53,10 +53,10 @@ export default async function RootLayout({
       lang="en"
       className={`${inter.variable} ${ephesis.variable} ${lato.variable} ${libreBaskerville.variable}`}
     >
-      <body>
+      <body suppressHydrationWarning>
         <section className="min-h-screen p-6 md:p-8 lg:p-12 pt-20 lg:pt-20 lg:pl-20">
           <div className="container mx-auto">
-            <FixedBanner isEnabled={isEnabled} message="Preview Mode" />
+            <FixedBanner isEnabled={isEnabled} message="Preview" />
 
             <main>{children}</main>
             <footer>
