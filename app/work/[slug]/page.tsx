@@ -56,6 +56,26 @@ export default async function WorkPage({ params }: { params: tParams }) {
         </div>
       )}
 
+      <div className="flex justify-between items-center w-full py-6 max-w-7xl">
+        <div className="flex flex-wrap gap-2">
+          {work.tags.map((tag, index) => (
+            <h4
+              key={index}
+              className="bg-gray-900 inline-block text-white px-6 py-3 rounded-full border-solid"
+            >
+              {tag}
+            </h4>
+          ))}
+        </div>
+
+        <a
+          href={work.link}
+          className="p-4 bg-white block overflow-hidden text-black text-xs font-bold uppercase rounded-full border border-black hover:bg-gray-100"
+        >
+          visit
+        </a>
+      </div>
+
       <div className="max-w-7xl rounded-sm overflow-hidden">
         <ResponsiveImage
           desktop={work.hero.desktop.url}
@@ -70,7 +90,7 @@ export default async function WorkPage({ params }: { params: tParams }) {
             key={index}
             className="mt-8 rounded-sm overflow-hidden bg-[#ffffff14] relative"
           >
-            <div className="w-full h-[700px] overflow-hidden relative">
+            <div className="w-full h-[800px] overflow-hidden relative">
               <Image
                 src={item.url}
                 fill
@@ -86,26 +106,6 @@ export default async function WorkPage({ params }: { params: tParams }) {
             </div> */}
           </div>
         ))}
-      </div>
-
-      <div className="flex justify-between items-center w-full py-6 max-w-7xl">
-        <div className="flex flex-wrap gap-2">
-          {work.tags.map((tag, index) => (
-            <span
-              key={index}
-              className="bg-gray-900 inline-block text-white px-6 py-3 rounded-full text-sm font-medium border-solid"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <a
-          href={work.link}
-          className="p-4 bg-white block overflow-hidden text-black rounded-full font-medium border border-black hover:bg-gray-100"
-        >
-          visit
-        </a>
       </div>
     </div>
   );

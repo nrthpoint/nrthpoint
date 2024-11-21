@@ -1,14 +1,7 @@
-import "./globals.css";
-import {
-  Host_Grotesk,
-  Ephesis,
-  Inter,
-  Lato,
-  Libre_Baskerville,
-} from "next/font/google";
-import Footer from "@/components/Footer";
 import { getFooterContent, getMetaData } from "@/lib/api";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Ephesis, Inter, Lato, Libre_Baskerville } from "next/font/google";
+import "./globals.css";
 
 export async function generateMetadata() {
   const data = await getMetaData();
@@ -60,8 +53,7 @@ export default async function RootLayout({
     >
       <body>
         <section className="min-h-screen p-12 pt-20 lg:pt-20 lg:pl-20">
-          <main>{children}</main>
-          <Footer content={footerData} />
+          <main className="ontainer mx-auto">{children}</main>
           <SpeedInsights />
         </section>
       </body>

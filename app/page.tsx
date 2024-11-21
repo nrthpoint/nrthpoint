@@ -8,6 +8,7 @@ import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import WaysOfWorking from "@/components/WaysOfWorking";
 import FixedBanner from "@/components/EditBanner";
+import Footer from "@/components/Footer";
 
 export default async function Page() {
   const { isEnabled } = await draftMode();
@@ -32,6 +33,7 @@ export default async function Page() {
           intro={data.waysOfWorkingIntroduction}
           ways={data.waysOfWorkingCollection.items}
         />
+        <Footer content={data.footer.json} />
       </div>
     </>
   );
