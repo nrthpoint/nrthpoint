@@ -59,7 +59,7 @@ export default async function WorkPage({ params }: { params: tParams }) {
         </div>
       )}
 
-      <div className="flex justify-between items-center w-full py-6 max-w-7xl">
+      <div className="flex justify-start items-start flex-col-reverse md:flex-row gap-4 md:justify-between md:items-center w-full py-6 max-w-7xl">
         <div className="flex flex-wrap gap-2">
           {work.tags.map((tag, index) => (
             <h4
@@ -73,7 +73,7 @@ export default async function WorkPage({ params }: { params: tParams }) {
 
         <a
           href={work.link}
-          className="p-4 bg-white block overflow-hidden text-black text-xs font-bold uppercase rounded-full border border-black hover:bg-gray-100"
+          className="p-4 bg-white w-[200px] text-center block overflow-hidden text-black text-xs font-bold uppercase rounded-full border border-black hover:bg-gray-100"
         >
           visit
         </a>
