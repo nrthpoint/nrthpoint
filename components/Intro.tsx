@@ -9,7 +9,9 @@ interface IntroProps {
 export default function Intro({ tagline, intro }: IntroProps) {
   return (
     <section className="max-w-5xl">
-      <h1 className="text-2xl md:text-3xl font-normal leading-10">{tagline}</h1>
+      <h1 className="text-2xl md:text-3xl font-normal md:leading-[3rem]">
+        {tagline}
+      </h1>
       <div className="prose my-4 md:max-w-[80%]">
         {documentToReactComponents(intro, {
           renderNode: {
