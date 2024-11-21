@@ -4,6 +4,7 @@ import { Ephesis, Inter, Lato, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import FixedBanner from "@/components/EditBanner";
 import { draftMode } from "next/headers";
+import FadeInSection from "@/components/FadeInSection";
 
 export async function generateMetadata() {
   const data = await getMetaData();
@@ -59,12 +60,14 @@ export default async function RootLayout({
             <FixedBanner isEnabled={isEnabled} message="Preview" />
 
             <main>{children}</main>
-            <footer>
-              <p className="text-sm mt-12 text-gray-500">
-                © {new Date().getFullYear()} North Point Technology. All rights
-                reserved.
-              </p>
-            </footer>
+            <FadeInSection>
+              <footer>
+                <p className="text-sm mt-12 text-gray-500">
+                  © {new Date().getFullYear()} North Point Technology. All
+                  rights reserved.
+                </p>
+              </footer>
+            </FadeInSection>
           </div>
           <SpeedInsights />
         </section>
