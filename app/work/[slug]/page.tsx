@@ -92,7 +92,7 @@ export default async function WorkPage({ params }: { params: tParams }) {
       </div>
 
       <div className="max-w-7xl rounded-sm overflow-hidden">
-        <FadeInSection delay={1000}>
+        <FadeInSection>
           <ResponsiveImage
             desktop={work.hero.desktop.url}
             mobile={work.hero.mobile.url}
