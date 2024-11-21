@@ -53,7 +53,15 @@ export default async function RootLayout({
     >
       <body>
         <section className="min-h-screen p-12 pt-20 lg:pt-20 lg:pl-20">
-          <main className="ontainer mx-auto">{children}</main>
+          <div className="container mx-auto">
+            <main>{children}</main>
+            <footer>
+              <p className="text-sm mt-12 text-gray-500">
+                © {new Date().getFullYear()} North Point Technology. All rights
+                reserved.
+              </p>
+            </footer>
+          </div>
           <SpeedInsights />
         </section>
       </body>

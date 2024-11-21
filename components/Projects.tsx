@@ -13,7 +13,7 @@ interface ProjectsProps {
 export default function Projects({ projects }: ProjectsProps) {
   return (
     <section className="max-w-7xl mt-6">
-      <h2 className="text-2xl font-semibold mb-4">Projects</h2>
+      <h2 className="text-2xl font-semibold mb-4">Featured</h2>
       <div className="grid md:grid-cols-3 gap-4">
         {projects.map((project, idx) => (
           <a
