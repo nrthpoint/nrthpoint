@@ -12,8 +12,10 @@ export default function Services({
 }) {
   return (
     <section className="mt-6 max-w-6xl">
-      <h2 className="text-2xl font-semibold">{heading}</h2>
-      <p>{intro}</p>
+      <FadeInSection>
+        <h2 className="text-2xl font-semibold">{heading}</h2>
+        <p>{intro}</p>
+      </FadeInSection>
 
       <div className="grid md:grid-cols-2 gap-4 mt-4">
         {services.map((service, idx) => (

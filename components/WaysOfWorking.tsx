@@ -14,8 +14,11 @@ export default function WaysOfWorking({
 }: WaysOfWorkingProps) {
   return (
     <section className="max-w-5xl">
-      <h2 className="text-2xl font-semibold">{header}</h2>
-      <p>{intro}</p>
+      <FadeInSection>
+        <h2 className="text-2xl font-semibold">{header}</h2>
+        <p>{intro}</p>
+      </FadeInSection>
+
       <div className="grid md:grid-cols-3 gap-4 mt-4">
         {ways.map((way, idx) => (
           <FadeInSection key={idx} delay={idx * 100}>
