@@ -21,7 +21,7 @@ export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
 
   return (
     <section className="max-w-7xl">
-      <div className="relative w-full h-96 min-h-[600px]">
+      <div className="relative w-full h-96 min-h-[300px] md:min-h-[600px]">
         {projects.map((project, idx) => (
           <a
             href={`/work/${project.url}`}

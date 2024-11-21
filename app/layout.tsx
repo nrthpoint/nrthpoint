@@ -52,7 +52,7 @@ export default async function RootLayout({
       className={`${inter.variable} ${ephesis.variable} ${lato.variable} ${libreBaskerville.variable}`}
     >
       <body>
-        <section className="min-h-screen p-12 pt-20 lg:pt-20 lg:pl-20">
+        <section className="min-h-screen p-6 md:p-8 lg:p-12 pt-20 lg:pt-20 lg:pl-20">
           <div className="container mx-auto">
             <main>{children}</main>
             <footer>

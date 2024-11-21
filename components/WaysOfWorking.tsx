@@ -15,7 +15,7 @@ export default function WaysOfWorking({
     <section className="max-w-5xl">
       <h2 className="text-2xl font-semibold">{header}</h2>
       <p>{intro}</p>
-      <div className="grid grid-cols-3 gap-4 mt-4">
+      <div className="grid md:grid-cols-3 gap-4 mt-4">
         {ways.map((way, idx) => (
           <div
             key={idx}
