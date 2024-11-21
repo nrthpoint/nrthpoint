@@ -1,4 +1,5 @@
 import { WayOfWorking } from "@/types/data";
+import FadeInSection from "./FadeInSection";
 
 interface WaysOfWorkingProps {
   header: string;
@@ -17,15 +18,17 @@ export default function WaysOfWorking({
       <p>{intro}</p>
       <div className="grid md:grid-cols-3 gap-4 mt-4">
         {ways.map((way, idx) => (
-          <div
-            key={idx}
-            className="p-4 pl-0 border-b border-b-gray-900 rounded-lg flex"
-          >
-            <div>
-              <h3 className="font-semibold">{way.name}</h3>
-              <p className="text-sm leading-6">{way.description}</p>
+          <FadeInSection key={idx} delay={idx * 100}>
+            <div
+              key={idx}
+              className="p-4 pl-0 border-b border-b-gray-900 rounded-lg flex"
+            >
+              <div>
+                <h3 className="font-semibold">{way.name}</h3>
+                <p className="text-sm leading-6">{way.description}</p>
+              </div>
             </div>
-          </div>
+          </FadeInSection>
         ))}
       </div>
     </section>

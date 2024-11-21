@@ -1,4 +1,5 @@
 import Image from "next/image";
+import FadeInSection from "./FadeInSection";
 
 interface HeaderProps {
   title: string;
@@ -7,7 +8,9 @@ interface HeaderProps {
 export default function Header({ title }: HeaderProps) {
   return (
     <header className=" text-white text-center">
-      <Image src="/images/logo.png" alt="logo" width={300} height={100} />
+      <FadeInSection>
+        <Image src="/images/logo.png" alt="logo" width={300} height={100} />
+      </FadeInSection>
     </header>
   );
 }
