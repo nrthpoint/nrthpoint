@@ -3,6 +3,7 @@ import { getAllWorkItemSlugs, getWorkItemBySlug } from "@/lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import Image from "next/image";
+import Link from "next/link";
 
 export async function generateStaticParams() {
   const slugs = await getAllWorkItemSlugs();
@@ -25,13 +26,15 @@ export default async function WorkPage({ params }: { params: tParams }) {
 
   return (
     <div className="mt-20">
-      <Image
-        src={"/images/logo.png"}
-        alt={work.title}
-        width={300}
-        height={100}
-        className="mb-20"
-      />
+      <Link href={"/work"}>
+        <Image
+          src={"/images/logo.png"}
+          alt={work.title}
+          width={200}
+          height={100}
+          className="mb-20"
+        />
+      </Link>
 
       <h2>{work.title}</h2>
 

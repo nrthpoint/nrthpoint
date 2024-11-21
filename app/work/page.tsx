@@ -1,19 +1,22 @@
 import { Work } from "@/types/data";
 import { getAllWorkItems } from "../../lib/api";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function WorkList() {
   const workItems: Work[] = await getAllWorkItems();
 
   return (
-    <>
-      <Image
-        src={"/images/logo.png"}
-        alt={"North Point"}
-        width={300}
-        height={100}
-        className="mb-20"
-      />
+    <div className="mt-20">
+      <Link href={"/"}>
+        <Image
+          src={"/images/logo.png"}
+          alt={"North Point"}
+          width={200}
+          height={50}
+          className="mb-20"
+        />
+      </Link>
 
       <h1 className="text-3xl font-bold mb-6 pb-6 border-b-slate-800">
         Our Work
@@ -35,6 +38,6 @@ export default async function WorkList() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
