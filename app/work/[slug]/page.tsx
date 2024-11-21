@@ -2,6 +2,7 @@ import ResponsiveImage from "@/components/ResponsiveImage";
 import { getAllWorkItemSlugs, getWorkItemBySlug } from "@/lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import { draftMode } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +15,9 @@ type tParams = Promise<{ slug: string }>;
 
 export default async function WorkPage({ params }: { params: tParams }) {
   const { slug } = await params;
-  const work = await getWorkItemBySlug(slug);
+  const { isEnabled } = await draftMode();
+
+  const work = await getWorkItemBySlug(slug, isEnabled);
 
   if (!work) {
     return (

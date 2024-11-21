@@ -2,9 +2,12 @@ import { Work } from "@/types/data";
 import { getAllWorkItems } from "../../lib/api";
 import Image from "next/image";
 import Link from "next/link";
+import { draftMode } from "next/headers";
+import { is } from "date-fns/locale";
 
 export default async function WorkList() {
-  const workItems: Work[] = await getAllWorkItems();
+  const { isEnabled } = await draftMode();
+  const workItems: Work[] = await getAllWorkItems(isEnabled);
 
   return (
     <div className="mt-20">
@@ -28,12 +31,14 @@ export default async function WorkList() {
             <h2 className="text-xl font-semibold">{work.title}</h2>
             <p className="max-w-[60%]">{work.description}</p>
             <div className="w-full h-[400px] relative rounded-sm">
-              <Image
-                src={work.hero.desktop.url}
-                alt={work.title}
-                fill
-                style={{ objectFit: "cover" }}
-              />
+              <Link href={`/work/${work.url}`}>
+                <Image
+                  src={work.hero.desktop.url}
+                  alt={work.title}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </Link>
             </div>
           </li>
         ))}

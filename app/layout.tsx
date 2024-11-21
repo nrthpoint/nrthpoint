@@ -2,6 +2,8 @@ import { getMetaData } from "@/lib/api";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Ephesis, Inter, Lato, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
+import FixedBanner from "@/components/EditBanner";
+import { draftMode } from "next/headers";
 
 export async function generateMetadata() {
   const data = await getMetaData();
@@ -44,6 +46,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { isEnabled } = await draftMode();
+
   return (
     <html
       lang="en"
@@ -52,6 +56,8 @@ export default async function RootLayout({
       <body>
         <section className="min-h-screen p-6 md:p-8 lg:p-12 pt-20 lg:pt-20 lg:pl-20">
           <div className="container mx-auto">
+            <FixedBanner isEnabled={isEnabled} message="Preview Mode" />
+
             <main>{children}</main>
             <footer>
               <p className="text-sm mt-12 text-gray-500">

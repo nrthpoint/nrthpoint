@@ -7,17 +7,14 @@ import Intro from "@/components/Intro";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import WaysOfWorking from "@/components/WaysOfWorking";
-import FixedBanner from "@/components/EditBanner";
 import Footer from "@/components/Footer";
 
 export default async function Page() {
   const { isEnabled } = await draftMode();
-  const data = await getGlobalContent();
+  const data = await getGlobalContent(isEnabled);
 
   return (
     <>
-      <FixedBanner isEnabled={isEnabled} message="Preview Mode" />
-
       <div className="min-h-screen mt-16 gap-y-16 w-full flex flex-col">
         <Header title={data.title} />
         <Intro tagline={data.homeTagline} intro={data.introduction.json} />
