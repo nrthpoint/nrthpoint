@@ -1,11 +1,12 @@
-import FadeInSection from "@/components/FadeInSection";
-import ResponsiveImage from "@/components/ResponsiveImage";
-import { getAllWorkItemSlugs, getWorkItemBySlug } from "@/lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { draftMode } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
+
+import FadeInSection from "@/components/FadeInSection";
+import ResponsiveImage from "@/components/ResponsiveImage";
+import { getAllWorkItemSlugs, getWorkItemBySlug } from "@/lib/api";
 
 export async function generateStaticParams() {
   const slugs = await getAllWorkItemSlugs();
@@ -46,7 +47,7 @@ export default async function WorkPage({ params }: { params: tParams }) {
         <h2>{work.title}</h2>
 
         {work.content && work.content.json && (
-          <div className="max-w-5xl py-4 mb-12">
+          <div className="max-w-5xl py-4">
             {documentToReactComponents(work.content.json, {
               renderNode: {
                 [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
@@ -67,7 +68,7 @@ export default async function WorkPage({ params }: { params: tParams }) {
         )}
       </FadeInSection>
 
-      <div className="flex justify-start items-start flex-col-reverse md:flex-row gap-4 md:justify-between md:items-center w-full py-6 max-w-7xl">
+      <div className="flex justify-start items-start flex-col mb-12 gap-4 md:justify-between w-full py-6 max-w-7xl">
         <FadeInSection delay={500}>
           <div className="flex flex-wrap gap-2">
             {work.tags.map((tag, index) => (
@@ -115,7 +116,7 @@ export default async function WorkPage({ params }: { params: tParams }) {
                   style={{
                     objectFit: "cover",
                   }}
-                  alt={item.title}
+                  alt={item.title || work.title}
                 />
               </div>
             </div>

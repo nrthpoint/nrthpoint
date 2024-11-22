@@ -1,4 +1,5 @@
 import { WayOfWorking } from "@/types/data";
+
 import FadeInSection from "./FadeInSection";
 
 interface WaysOfWorkingProps {

@@ -1,5 +1,6 @@
-import { getAllWorkItems } from "@/lib/api";
 import { MetadataRoute } from "next";
+
+import { getAllWorkItems } from "@/lib/api";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const workItems = await getAllWorkItems();

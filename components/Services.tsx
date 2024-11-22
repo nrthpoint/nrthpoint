@@ -1,4 +1,5 @@
 import { Service } from "@/types/data";
+
 import FadeInSection from "./FadeInSection";
 
 export default function Services({

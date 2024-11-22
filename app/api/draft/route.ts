@@ -1,7 +1,6 @@
-import { NextResponse } from "next/server";
-
 //@ts-ignore
 import { enableDraftHandler } from "@contentful/vercel-nextjs-toolkit/app-router";
+import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
@@ -14,7 +13,9 @@ export async function GET(req: Request) {
 
   try {
     await enableDraftHandler(req);
-  } catch (error) {}
+  } catch (error) {
+    /* empty */
+  }
 
   if (slug) {
     return NextResponse.redirect(`http://localhost:3000${slug}`);

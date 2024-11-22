@@ -1,5 +1,6 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, Document, INLINES } from "@contentful/rich-text-types";
+
 import FadeInSection from "./FadeInSection";
 
 interface FooterProps {
@@ -13,10 +14,10 @@ export default function Footer({ content }: FooterProps) {
         <div className="prose prose-invert max-w-none">
           {documentToReactComponents(content, {
             renderNode: {
-              [BLOCKS.PARAGRAPH]: (node, children) => (
+              [BLOCKS.PARAGRAPH]: (_node, children) => (
                 <p className="mb-4">{children}</p>
               ),
-              [BLOCKS.HEADING_2]: (node, children) => (
+              [BLOCKS.HEADING_2]: (_node, children) => (
                 <h2 className="text-sm font-semibold mb-4 text-gray-300">
                   {children}
                 </h2>

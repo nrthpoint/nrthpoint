@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Project } from "@/types/data";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
+import { WorkPreview } from "@/types/data";
+
 import FadeInSection from "./FadeInSection";
 
 interface FeaturedProjectsProps {
-  projects: Project[];
+  projects: WorkPreview[];
 }
 
 export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {

@@ -1,13 +1,13 @@
 import { draftMode } from "next/headers";
-import { getGlobalContent } from "@/lib/api";
 
-import Header from "@/components/Header";
 import FeaturedProjects from "@/components/FeaturedProjects";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import Intro from "@/components/Intro";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import WaysOfWorking from "@/components/WaysOfWorking";
-import Footer from "@/components/Footer";
+import { getGlobalContent } from "@/lib/api";
 
 export default async function Page() {
   const { isEnabled } = await draftMode();
@@ -16,7 +16,7 @@ export default async function Page() {
   return (
     <>
       <div className="min-h-screen mt-16 gap-y-16 w-full flex flex-col">
-        <Header title={data.title} />
+        <Header />
         <Intro tagline={data.homeTagline} intro={data.introduction.json} />
         <FeaturedProjects projects={data.featuredProjectsCollection.items} />
         <Projects projects={data.projectsCollection.items} />

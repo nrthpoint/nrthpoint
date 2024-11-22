@@ -1,5 +1,11 @@
 import { GlobalData, Work } from "@/types/data";
 
+import {
+  SERVICE_ITEM_FIELDS_FRAGMENT,
+  WORK_FIELDS_FRAGMENT,
+  WORK_FIELDS_PREVIEW_FRAGMENT,
+} from "./fragments";
+
 const GLOBAL_QUERY = `
   query globalEntryQuery($preview:Boolean) {
     global(id: "4jPxs0J7phTTuBlRH7c2K6", preview: $preview) {
@@ -10,59 +16,26 @@ const GLOBAL_QUERY = `
       }
       featuredProjectsCollection {
         items {
-          title
-          description
-          homepageAction
-          url
-          hero {
-            desktop {
-              url
-            }
-            mobile {
-              url
-            }
-          }
+          ...WorkFieldsPreview
         }
       }
       waysOfWorkingHeader
       projectsCollection {
         items {
-          previewImage {
-            url
-          }
-          title
-          description
-          homepageAction
-          url
-          hero {
-            desktop {
-              url
-            }
-            mobile {
-              url
-            }
-          }
+          ...WorkFieldsPreview
         }
       }
       servicesHeading
       servicesIntroduction
       servicesCollection {
         items {
-          name
-          description
-          icon {
-            url
-          }
+          ...ServiceItemFields
         }
       }
       waysOfWorkingIntroduction
       waysOfWorkingCollection {
         items {
-          name
-          description
-          icon {
-            url
-          }
+          ...ServiceItemFields
         }
       }
       footer {
@@ -70,6 +43,9 @@ const GLOBAL_QUERY = `
       }
     }
   }
+
+  ${WORK_FIELDS_PREVIEW_FRAGMENT}
+  ${SERVICE_ITEM_FIELDS_FRAGMENT}
 `;
 
 const FOOTER_QUERY = `
@@ -95,33 +71,11 @@ const ALL_WORK_ITEMS_QUERY = `
 {
   workCollection {
     items {
-      title
-    url
-    featured
-    hero {
-      desktop {
-        url
-      }
-      mobile {
-        url
-      }
-    }
-    galleryCollection {
-      items {
-        title
-        description
-      }
-    }
-    description
-    content {
-      json
-    }
-    tags
-    link
-  
+      ...WorkFields
     }
   }
 }
+${WORK_FIELDS_FRAGMENT}
 `;
 
 const ALL_WORK_ITEM_SLUGS_QUERY = `
@@ -131,35 +85,6 @@ const ALL_WORK_ITEM_SLUGS_QUERY = `
       url
     }
   }
-}
-`;
-
-const WORK_FIELDS_FRAGMENT = `
-fragment WorkFields on Work {
-  title
-  url
-  featured
-  hero {
-    desktop {
-      url
-    }
-    mobile {
-      url
-    }
-  }
-  galleryCollection {
-    items {
-      title
-      description
-      url
-    }
-  }
-  description
-  content {
-    json
-  }
-  tags
-  link
 }
 `;
 
@@ -186,6 +111,7 @@ ${WORK_FIELDS_FRAGMENT}
 `;
 
 async function fetchGraphQL(query: string, preview = false): Promise<any> {
+  console.log("fetching graphql", query);
   return fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
     {

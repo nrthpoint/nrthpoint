@@ -1,5 +1,6 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, Document, INLINES } from "@contentful/rich-text-types";
+
 import FadeInSection from "./FadeInSection";
 
 interface IntroProps {

@@ -1,10 +1,12 @@
-import { getMetaData } from "@/lib/api";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Ephesis, Inter, Lato, Libre_Baskerville } from "next/font/google";
-import "./globals.css";
-import FixedBanner from "@/components/EditBanner";
 import { draftMode } from "next/headers";
+import { ReactNode } from "react";
+
+import FixedBanner from "@/components/EditBanner";
 import FadeInSection from "@/components/FadeInSection";
+import { getMetaData } from "@/lib/api";
+import "./globals.css";
 
 export async function generateMetadata() {
   const data = await getMetaData();
@@ -45,7 +47,7 @@ const libreBaskerville = Libre_Baskerville({
 export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   const { isEnabled } = await draftMode();
 
@@ -55,7 +57,7 @@ export default async function RootLayout({
       className={`${inter.variable} ${ephesis.variable} ${lato.variable} ${libreBaskerville.variable}`}
     >
       <body suppressHydrationWarning>
-        <section className="min-h-screen p-6 md:p-8 lg:p-12 pt-20 lg:pt-20 lg:pl-20">
+        <section className="min-h-screen p-6 pt-20 md:p-8 lg:p-12">
           <div className="container mx-auto">
             <FixedBanner isEnabled={isEnabled} message="Preview" />
 

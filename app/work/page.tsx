@@ -1,10 +1,11 @@
-import { Work } from "@/types/data";
-import { getAllWorkItems } from "../../lib/api";
+import { draftMode } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
-import { draftMode } from "next/headers";
-import { is } from "date-fns/locale";
+
 import FadeInSection from "@/components/FadeInSection";
+import { getAllWorkItems } from "@/lib/api";
+import { getProjectUrl as getProjectUrl } from "@/lib/utils";
+import { Work } from "@/types/data";
 
 export default async function WorkList() {
   const { isEnabled } = await draftMode();
@@ -30,25 +31,28 @@ export default async function WorkList() {
         </h1>
       </FadeInSection>
 
-      <ul className="max-w-6xl">
+      <ul className="max-w-6xl grid md:grid-cols-2 gap-4 gap-y-20">
         {workItems.map((work, idx) => (
-          <FadeInSection delay={idx * 100}>
+          <FadeInSection delay={idx * 100} key={idx}>
             <li
               key={work.id}
-              className="border-b pb-12 mb-12 border-b-slate-800"
+              className="border-b pb-12 border-b-slate-800 h-[400px]"
             >
-              <h2 className="text-xl font-semibold">{work.title}</h2>
-              <p className="max-w-[60%]">{work.description}</p>
-              <div className="w-full h-[400px] relative rounded-sm">
-                <Link href={`/work/${work.url}`}>
+              <h2 className="text-xl font-semibold pb-6">{work.title}</h2>
+              <div className="w-full h-[200px] relative rounded-sm">
+                <Link href={getProjectUrl(work)}>
                   <Image
-                    src={work.hero.desktop.url}
+                    src={work.previewImage.url}
                     alt={work.title}
                     fill
                     style={{ objectFit: "cover" }}
+                    className="rounded-sm"
                   />
                 </Link>
               </div>
+              <p className="max-w-[80%] absolute bottom-2 h-[100px]">
+                {work.description}
+              </p>
             </li>
           </FadeInSection>
         ))}

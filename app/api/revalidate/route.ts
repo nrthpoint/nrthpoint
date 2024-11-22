@@ -1,5 +1,5 @@
+import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath, revalidateTag } from "next/cache";
 
 export async function POST(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);

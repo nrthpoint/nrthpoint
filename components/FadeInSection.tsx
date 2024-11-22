@@ -1,10 +1,11 @@
 "use client";
 
+import { useState, useEffect, ReactNode } from "react";
+
 import { useInView } from "@/hooks/useInView";
-import { useState, useEffect } from "react";
 
 interface FadeInSectionProps {
-  children: React.ReactNode;
+  children: ReactNode;
   delay?: number; // Optional delay in milliseconds
 }
 

@@ -2,18 +2,8 @@ import { Document } from "@contentful/rich-text-types";
 
 type Media = {
   url: string;
-};
-
-type Project = {
-  title: string;
-  description: string;
-  url: string;
-  hero: {
-    desktop: Media;
-    mobile: Media;
-  };
-  homepageAction: string;
-  previewImage: Media;
+  title?: string;
+  description?: string;
 };
 
 export type Service = {
@@ -45,14 +35,30 @@ export type GlobalData = {
     items: Service[];
   };
   projectsCollection: {
-    items: Project[];
+    items: WorkPreview[];
   };
   waysOfWorkingCollection: {
     items: WayOfWorking[];
   };
   featuredProjectsCollection: {
-    items: Project[];
+    items: WorkPreview[];
   };
+};
+
+export type WorkPreview = {
+  id: string;
+  title: string;
+  url: string;
+  featured: boolean;
+  previewImage: Media;
+  hero: {
+    desktop: Media;
+    mobile: Media;
+  };
+  description: string;
+  homepageAction: "None" | "Project Page" | "Direct";
+  tags: string[];
+  link: string;
 };
 
 export type Work = {
@@ -60,22 +66,16 @@ export type Work = {
   title: string;
   url: string;
   featured: boolean;
+  previewImage: Media;
   hero: {
-    desktop: {
-      url: string;
-    };
-    mobile: {
-      url: string;
-    };
+    desktop: Media;
+    mobile: Media;
   };
   galleryCollection: {
-    items: {
-      title: string;
-      description: string;
-      url: string;
-    }[];
+    items: Media[];
   };
   description: string;
+  homepageAction: "None" | "Project Page" | "Direct";
   content: {
     json: Document;
   };

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaTimes } from "react-icons/fa"; // Importing the cross icon
+import { FaTimes } from "react-icons/fa";
 
 interface FixedBannerProps {
   isEnabled: boolean;

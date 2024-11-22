@@ -1,11 +1,8 @@
 import Image from "next/image";
+
 import FadeInSection from "./FadeInSection";
 
-interface HeaderProps {
-  title: string;
-}
-
-export default function Header({ title }: HeaderProps) {
+export default function Header() {
   return (
     <header className=" text-white text-center">
       <FadeInSection>
