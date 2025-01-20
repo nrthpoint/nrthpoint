@@ -74,7 +74,7 @@ export default async function WorkPage({ params }: { params: tParams }) {
             {work.tags.map((tag, index) => (
               <h4
                 key={index}
-                className="bg-gray-900 inline-block text-white px-6 py-3 rounded-full border-solid"
+                className="bg-gray-900 inline-block text-white px-6 py-3 rounded-lg border-solid"
               >
                 {tag}
               </h4>
@@ -85,9 +85,9 @@ export default async function WorkPage({ params }: { params: tParams }) {
         <FadeInSection delay={750}>
           <a
             href={work.link}
-            className="p-4 bg-white w-[200px] text-center block overflow-hidden text-black text-xs font-bold uppercase rounded-full border border-black hover:bg-gray-100"
+            className="p-4 border-b-white text-white w-[200px] block overflow-hidden text-left text-xs font-bold uppercase border mt-10 border-black hover:bg-gray-100"
           >
-            visit
+            visit →
           </a>
         </FadeInSection>
       </div>

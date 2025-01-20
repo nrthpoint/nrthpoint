@@ -111,7 +111,6 @@ ${WORK_FIELDS_FRAGMENT}
 `;
 
 async function fetchGraphQL(query: string, preview = false): Promise<any> {
-  console.log("fetching graphql", query);
   return fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
     {

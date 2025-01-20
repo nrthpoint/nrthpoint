@@ -7,9 +7,10 @@
   body {
     @apply bg-black text-slate-100 font-sans leading-4;
 
-    background-image: url("/images/bg.jpg");
+    /* background-image: url("/images/bg.jpg");
     background-repeat: no-repeat;
     background-position: top left;
+    background-size: 100%; */
   }
 
   h1,
