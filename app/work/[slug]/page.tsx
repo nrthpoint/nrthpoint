@@ -68,7 +68,7 @@ export default async function WorkPage({ params }: { params: tParams }) {
         )}
       </FadeInSection>
 
-      <div className="flex justify-start items-start flex-col mb-12 gap-4 md:justify-between w-full py-6 max-w-7xl">
+      <div className="flex justify-start items-start flex-col mb-12 gap-4 md:justify-between w-full pb-6 max-w-7xl">
         <FadeInSection delay={500}>
           <div className="flex flex-wrap gap-2">
             {work.tags.map((tag, index) => (
@@ -85,14 +85,14 @@ export default async function WorkPage({ params }: { params: tParams }) {
         <FadeInSection delay={750}>
           <a
             href={work.link}
-            className="p-4 border-b-white text-white w-[200px] block overflow-hidden text-left text-xs font-bold uppercase border mt-10 border-black hover:bg-gray-100"
+            className="p-3 text-black bg-white w-[150px] block rounded-lg text-center overflow-hidden text-xs font-bold uppercase border mt-10 border-black hover:bg-gray-100 hover:text-gray-800"
           >
             visit →
           </a>
         </FadeInSection>
       </div>
 
-      <div className="max-w-7xl rounded-sm overflow-hidden">
+      <div className="max-w-6xl rounded-sm overflow-hidden">
         <FadeInSection>
           <ResponsiveImage
             desktop={work.hero.desktop.url}
@@ -102,23 +102,21 @@ export default async function WorkPage({ params }: { params: tParams }) {
         </FadeInSection>
       </div>
 
-      <div className="max-w-7xl">
+      <div className="max-w-6xl">
         {work.galleryCollection.items.map((item, index) => (
           <FadeInSection key={index} delay={index * 100}>
             <div
               key={index}
               className="mt-8 rounded-sm overflow-hidden bg-[#ffffff14] relative"
             >
-              <div className="w-full h-[800px] overflow-hidden relative">
-                <Image
-                  src={item.url}
-                  fill
-                  style={{
-                    objectFit: "cover",
-                  }}
-                  alt={item.title || work.title}
-                />
-              </div>
+              <Image
+                src={item.url}
+                alt={item.title || work.title}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: "100%", height: "auto" }} // optional
+              />
             </div>
           </FadeInSection>
         ))}
