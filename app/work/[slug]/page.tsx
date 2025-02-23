@@ -13,9 +13,9 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug: slug.url }));
 }
 
-type tParams = Promise<{ slug: string }>;
+type WorkPageParams = Promise<{ slug: string }>;
 
-export default async function WorkPage({ params }: { params: tParams }) {
+export default async function WorkPage({ params }: { params: WorkPageParams }) {
   const { slug } = await params;
   const { isEnabled } = await draftMode();
 
@@ -81,15 +81,6 @@ export default async function WorkPage({ params }: { params: tParams }) {
             ))}
           </div>
         </FadeInSection>
-
-        <FadeInSection delay={750}>
-          <a
-            href={work.link}
-            className="p-3 text-black bg-white w-[150px] block rounded-lg text-center overflow-hidden text-xs font-bold uppercase border mt-10 border-black hover:bg-gray-100 hover:text-gray-800"
-          >
-            visit →
-          </a>
-        </FadeInSection>
       </div>
 
       <div className="max-w-6xl rounded-sm overflow-hidden">
@@ -120,6 +111,17 @@ export default async function WorkPage({ params }: { params: tParams }) {
             </div>
           </FadeInSection>
         ))}
+      </div>
+
+      <div>
+        <FadeInSection delay={750}>
+          <a
+            href={work.link}
+            className="p-3 text-black bg-white w-[150px] block rounded-lg text-center overflow-hidden text-xs font-bold uppercase border mt-10 border-black hover:bg-gray-100 hover:text-gray-800"
+          >
+            visit →
+          </a>
+        </FadeInSection>
       </div>
     </div>
   );
