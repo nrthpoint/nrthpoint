@@ -1,3 +1,5 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Ephesis, Inter, Lato, Libre_Baskerville } from "next/font/google";
 import { draftMode } from "next/headers";
@@ -71,6 +73,8 @@ export default async function RootLayout({
               </footer>
             </FadeInSection>
           </div>
+          <Analytics />
+          <GoogleAnalytics gaId="G-KEYVC07J74" />
           <SpeedInsights />
         </section>
       </body>
